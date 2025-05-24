@@ -5,7 +5,7 @@ def main():
 
     pygame.init()
 
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
+    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), vsync=1)
     screen.fill("black")
     pygame.display.flip()
 
