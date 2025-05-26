@@ -1,12 +1,16 @@
-import pygame
+import pygame as pg
 
 class TradeView():
     def setup(self):
-        pygame.init()
+        pg.init()
 
-        self.screen = pygame.display.set_mode((self._screen_width, self._screen_height), vsync=1)
+        self.screen = pg.display.set_mode((self._screen_width, self._screen_height), vsync=1)
         self.screen.fill("black")
-        pygame.display.flip()
+
+        pg.display.set_caption("The Many Waters of Boolea")
+        pg.mouse.set_visible(False)
+
+        pg.display.flip()
 
     def dispWhite(self):
         self.screen.fill("white")
@@ -15,7 +19,7 @@ class TradeView():
         self.screen.fill("black")
 
     def refresh(self):
-        pygame.display.flip()
+        pg.display.flip()
 
     def __init__(self, width, height):
         self._screen_width = width

@@ -12,12 +12,14 @@ class TradeController():
 
         self.clock = pg.time.Clock()
         self.dt = 0
+
         self._model.setup()
 
     def game_loop_step(self):
         for event in pg.event.get():
             match event.type:
                 case pg.QUIT:
+                    pg.quit()
                     return "exit"
                 case pg.KEYDOWN:
                     if event.key == pg.K_SPACE:
