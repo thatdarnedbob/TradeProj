@@ -1,11 +1,12 @@
 from model.trademodel import TradeModel
 import pygame as pg
-from constants import FPS_CAP, MIN_TIK
+from constants import (FPS_CAP, MIN_TIK,
+                       SCREEN_WIDTH, SCREEN_HEIGHT)
 
 class TradeController():
 
-    def __init__(self, width, height):
-        self._model = TradeModel(width, height)
+    def __init__(self):
+        self._model = TradeModel(SCREEN_WIDTH, SCREEN_HEIGHT)
 
     def setup(self):
 

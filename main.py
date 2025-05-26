@@ -1,10 +1,8 @@
-import pygame
-from constants import *
 from controller.tradecontroller import TradeController
 
 def main():
 
-    tradecontroller = TradeController(SCREEN_WIDTH, SCREEN_HEIGHT)
+    tradecontroller = TradeController()
     tradecontroller.setup()
 
     while(True):
