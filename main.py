@@ -1,13 +1,12 @@
 import pygame
 from constants import *
+from tradeview import TradeView
 
 def main():
 
-    pygame.init()
+    tradeview = TradeView(SCREEN_WIDTH, SCREEN_HEIGHT)
 
-    screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT), vsync=1)
-    screen.fill("black")
-    pygame.display.flip()
+    tradeview.setup()
 
     clock = pygame.time.Clock()
     dt = 0
@@ -17,10 +16,10 @@ def main():
             if event.type == pygame.QUIT:
                 return
             if event.type == pygame.KEYDOWN and event.key == pygame.K_SPACE:
-                screen.fill("white")
+                tradeview.dispWhite()
             if event.type == pygame.KEYUP and event.key == pygame.K_SPACE:    
-                screen.fill("black")
-        pygame.display.flip()
+                tradeview.dispBlack()
+        tradeview.refresh()
         dt += clock.tick(FPS_CAP) / 1000
 
 if __name__ == "__main__":
