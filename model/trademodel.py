@@ -1,4 +1,4 @@
-from tradeview import TradeView
+from view.tradeview import TradeView
 
 class TradeModel():
 

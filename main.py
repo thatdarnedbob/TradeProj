@@ -1,6 +1,6 @@
 import pygame
 from constants import *
-from tradecontroller import TradeController
+from controller.tradecontroller import TradeController
 
 def main():
 

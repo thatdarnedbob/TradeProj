@@ -12,3 +12,5 @@ def update(self, dt):
         if keys[pygame.K_a]:
             # ?
         if keys[pygame.K_d]:
+
+main_dir = os.path.split(os.path.abspath(__file__))[0]
