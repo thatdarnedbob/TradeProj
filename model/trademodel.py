@@ -1,4 +1,11 @@
 from view.tradeview import TradeView
+from enum import Enum
+
+class state(Enum):
+    TOP_LEVEL = 1
+    RED_LEVEL = 2
+    GREEN_LEVEL = 3
+    BLUE_LEVEL = 4
 
 class TradeModel():
 
