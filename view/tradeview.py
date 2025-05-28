@@ -14,7 +14,6 @@ class TradeView():
         self.menus = pg.Surface(self.screen.get_size())
         self.menus = self.menus.convert()
         self.menus.fill("black")
-        self.menu_strings = []
 
         self.screen.blit(self.menus, (0,0))
         pg.display.flip()
@@ -25,17 +24,21 @@ class TradeView():
     def dispBlack(self):
         self.bg.fill("black")
 
-    def acceptNewMenu(self, menu_array):
-        self.menu_strings = menu_array
+    def acceptNewMenu(self, menu_array, selected):
+        self.menus.fill("black")
         font = pg.font.Font(None, 36)
-        for i in range(len(self.menu_strings)):
-            text = font.render(self.menu_strings[i], 1, "green")
-            
+        for i in range(len(menu_array)):
+            if i == selected:
+                self.menus.fill("red", pg.Rect(MENU_X_OFFSET, MENU_Y_OFFSET + i * MENU_Y_STAGGER,
+                                               20, 25))
+            text = font.render(f"{i + 1} - {menu_array[i]}", 1, "green")
+                
             self.menus.blit(text, (MENU_X_OFFSET + MENU_X_STAGGER * i,
                                    MENU_Y_OFFSET + MENU_Y_STAGGER * i))
             
 
     def refresh(self):
+        self.screen.fill("black")
         self.screen.blit(self.menus, (0,0))
         pg.display.flip()
 

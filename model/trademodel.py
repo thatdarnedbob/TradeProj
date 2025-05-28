@@ -1,35 +1,34 @@
 from view.tradeview import TradeView
 from enum import Enum
 
-class State(Enum):
-    TOP_LEVEL = 1
-    RED_LEVEL = 2
-    GREEN_LEVEL = 3
-    BLUE_LEVEL = 4
-
 class TradeModel():
 
     def __init__(self, width, height):
         self._view = TradeView(width, height)
-        self._state = State.TOP_LEVEL
+        self.current_menu = ["Default string, none"]
+        self.menu_selection = 0
 
     def setup(self):
         self._view.setup()
-        self._view.acceptNewMenu(self.createMainMenu())
+        self.createMainMenu()
+        self._view.acceptNewMenu(self.current_menu, self.menu_selection)
 
     def createMainMenu(self):
-        main_menu = ["Do nothing", "Do less", "Exit"]
-        return main_menu
+        self.current_menu = ["Do nothing", "Do less", "Exit"]
+        self.menu_selection = 0
 
     def game_step(self):
         pass
 
     def render(self):
-
+        self._view.acceptNewMenu(self.current_menu, self.menu_selection)
         self._view.refresh()
 
-    def space_down(self):
-        self._view.dispWhite()
-        
-    def space_up(self):
-        self._view.dispBlack()
+    def menu_down(self):
+        if self.menu_selection < len(self.current_menu) - 1:
+            self.menu_selection += 1
+        print(self.menu_selection)
+    def menu_up(self):
+        if self.menu_selection > 0:
+            self.menu_selection -= 1
+        print(self.menu_selection)

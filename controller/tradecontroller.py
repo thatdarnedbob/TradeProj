@@ -22,11 +22,10 @@ class TradeController():
                     pg.quit()
                     return "exit"
                 case pg.KEYDOWN:
-                    if event.key == pg.K_SPACE:
-                        self._model.space_down()
-                case pg.KEYUP:
-                    if event.key == pg.K_SPACE:    
-                        self._model.space_up()
+                    if event.key == pg.K_DOWN:
+                        self._model.menu_down()
+                    if event.key == pg.K_UP:    
+                        self._model.menu_up()
 
         self._model.game_step()
 
