@@ -27,8 +27,6 @@ class TradeModel():
     def menu_down(self):
         if self.menu_selection < len(self.current_menu) - 1:
             self.menu_selection += 1
-        print(self.menu_selection)
     def menu_up(self):
         if self.menu_selection > 0:
             self.menu_selection -= 1
-        print(self.menu_selection)
