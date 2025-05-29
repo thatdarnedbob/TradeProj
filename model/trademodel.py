@@ -22,6 +22,7 @@ class TradeModel():
 
     def render(self):
         self._view.acceptNewMenu(self.current_menu, self.menu_selection)
+        # self._view.updateMenuSelection(self.menu_selection)
         self._view.refresh()
 
     def menu_down(self):
