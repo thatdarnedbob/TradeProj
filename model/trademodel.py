@@ -11,7 +11,7 @@ class TradeModel():
     def setup(self):
         self._view.setup()
         self.createMainMenu()
-        self._view.acceptNewMenu(self.current_menu, self.menu_selection)
+        self._view.updateMenu(self.current_menu, self.menu_selection)
 
     def createMainMenu(self):
         self.current_menu = ["Do nothing", "Do less", "Exit"]
@@ -21,13 +21,13 @@ class TradeModel():
         pass
 
     def render(self):
-        self._view.acceptNewMenu(self.current_menu, self.menu_selection)
-        # self._view.updateMenuSelection(self.menu_selection)
         self._view.refresh()
 
     def menu_down(self):
         if self.menu_selection < len(self.current_menu) - 1:
             self.menu_selection += 1
+            self._view.updateMenu(self.current_menu, self.menu_selection)
     def menu_up(self):
         if self.menu_selection > 0:
             self.menu_selection -= 1
+            self._view.updateMenu(self.current_menu, self.menu_selection)

@@ -17,19 +17,27 @@ class TradeView():
         self.menus.fill(MENUS_MASK_COLOR)
         self.menus.set_colorkey(MENUS_MASK_COLOR)
 
+        self.menu_array = []
+
+        self.menu_selection = pg.Surface(self.screen.get_size()).convert()
+        self.menu_selection.fill(MENUS_MASK_COLOR)
+        self.menu_selection.set_colorkey(MENUS_MASK_COLOR)
+
         self._bg = pg.Surface(self.screen.get_size()).convert()
         self._bg.fill(pg.Color(BG_COLOR))
 
         self.screen.blit(self.menus, (0,0))
         pg.display.flip()
 
-    def acceptNewMenu(self, menu_array, selected):
+    def updateMenu(self, menu_array, selected):
         self.menus.fill(MENUS_MASK_COLOR)
+        self.menu_selection.fill(MENUS_MASK_COLOR)
+
         font = pg.font.SysFont('couriernew', 36)
         for i in range(len(menu_array)):
             if i == selected:
                 num_size = font.size(f"{i + 1}")
-                self.menus.fill(SEL_HIGHLIGHT_COLOR, pg.Rect((MENU_X_OFFSET, MENU_Y_OFFSET + i * MENU_Y_STAGGER),
+                self.menu_selection.fill(SEL_HIGHLIGHT_COLOR, pg.Rect((MENU_X_OFFSET, MENU_Y_OFFSET + i * MENU_Y_STAGGER),
                                                num_size))
             text = font.render(f"{i + 1} - {menu_array[i]}", 1, MENU_TEXT_COLOR)
                 
@@ -39,8 +47,13 @@ class TradeView():
 
     def refresh(self):
         self.screen.blit(self._bg, (0, 0))
-        self.screen.blit(self.menus, (0,0))
+        self.render_current_menu()
         pg.display.flip()
+
+    def render_current_menu(self):
+        self.screen.blit(self.menu_selection, (0,0))
+        self.screen.blit(self.menus, (0,0))
+
 
     def __init__(self, width, height):
         self._screen_width = width
