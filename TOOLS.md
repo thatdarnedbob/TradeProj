@@ -15,3 +15,10 @@ def update(self, dt):
         if keys[pygame.K_d]:
 
 main_dir = os.path.split(os.path.abspath(__file__))[0]
+
+nos = [0,1,2]
+    abcs = ['a','b','c']
+    print(nos)
+    print(abcs)
+    print(list(zip(nos, abcs)))
+    print(list(zip(*zip(nos, abcs))))
