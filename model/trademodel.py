@@ -39,8 +39,10 @@ class TradeModel():
 
         self.current_menu = self._world.disp_town_list()
         self.menu_actions = [None] * self._world.num_of_towns()
+
         self.current_menu.append("Back to Main Menu")
         self.menu_actions.append(self.backToMainMenu)
+
         self.menu_selection.append(0)
         self._view.updateMenu(self.current_menu, self.menu_selection[-1])
 
@@ -49,8 +51,12 @@ class TradeModel():
         del self.menu_actions
         gc.collect()'''
 
-        self.current_menu = ["River Hauler", "Back to Main Menu"]
-        self.menu_actions = [None, self.backToMainMenu]
+        self.current_menu = self._world.disp_ship_list()
+        self.menu_actions = [None] * len(self.current_menu)
+
+        self.current_menu.append("Back to Main Menu")
+        self.menu_actions.append(self.backToMainMenu)
+
         self.menu_selection.append(0)
         self._view.updateMenu(self.current_menu, self.menu_selection[-1])
 

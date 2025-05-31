@@ -1,3 +1,3 @@
-Name, Capacity, Cost, Maintenance Cost
+Name, Capacity, Cost, Upkeep Cost
 River Hauler, 10, 40, 4
 Ocean Hauler, 40, 200, 20
