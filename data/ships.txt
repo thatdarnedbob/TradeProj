@@ -1,0 +1,5 @@
+Ship Type, Ship Location, Number
+River Hauler, Boolea, 4
+River Hauler, Boolea Outskirts, 1
+River Hauler, Headwaters of Boolea, 1
+Ocean Hauler, Boolea, 1

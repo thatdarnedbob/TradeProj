@@ -30,10 +30,10 @@ class TradeController():
                 case pg.KEYDOWN:
                     if self.is_down_key(event.key):
                         self._model.menu_down()
-                    if self.is_up_key(event.key):    
+                    elif self.is_up_key(event.key):    
                         self._model.menu_up()
-                    if self.is_select_key(event.key):
-                        self._model.execute()
+                    elif self.is_select_key(event.key):
+                        self._model.menu_execute()
 
         self._model.game_step()
 

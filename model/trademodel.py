@@ -1,9 +1,9 @@
 from view.tradeview import TradeView
 from enum import Enum
+from model.WorldManager import WorldManager
 import gc
 
 class TradeModel():
-    # for scope limitation, let's have the TradeModel class handle its own menu logic.
     def __init__(self, width, height, exit_command):
         self._view = TradeView(width, height)
         self.current_menu = None
@@ -14,6 +14,7 @@ class TradeModel():
 
     def setup(self):
         self._view.setup()
+        self._world = WorldManager()
         self.createMainMenu()
 
     def createMainMenu(self):
@@ -32,19 +33,21 @@ class TradeModel():
         self._view.updateMenu(self.current_menu, self.menu_selection[-1])
     
     def createTownsMenu(self):
-        del self.current_menu
+        '''del self.current_menu
         del self.menu_actions
-        gc.collect()
+        gc.collect()'''
 
-        self.current_menu = ["Boolea", "Back to Main Menu"]
-        self.menu_actions = [None, self.backToMainMenu]
+        self.current_menu = self._world.disp_town_list()
+        self.menu_actions = [None] * self._world.num_of_towns()
+        self.current_menu.append("Back to Main Menu")
+        self.menu_actions.append(self.backToMainMenu)
         self.menu_selection.append(0)
         self._view.updateMenu(self.current_menu, self.menu_selection[-1])
 
     def createShipsMenu(self):
-        del self.current_menu
+        '''del self.current_menu
         del self.menu_actions
-        gc.collect()
+        gc.collect()'''
 
         self.current_menu = ["River Hauler", "Back to Main Menu"]
         self.menu_actions = [None, self.backToMainMenu]
@@ -52,9 +55,9 @@ class TradeModel():
         self._view.updateMenu(self.current_menu, self.menu_selection[-1])
 
     def createGoodsMenu(self):
-        del self.current_menu
+        '''del self.current_menu
         del self.menu_actions
-        gc.collect()
+        gc.collect()'''
 
         self.current_menu = ["Gold", "Back to Main Menu"]
         self.menu_actions = [None, self.backToMainMenu]
@@ -77,6 +80,6 @@ class TradeModel():
             self.menu_selection[-1] -= 1
             self._view.updateMenu(self.current_menu, self.menu_selection[-1])
     
-    def execute(self):
+    def menu_execute(self):
         if self.menu_actions[self.menu_selection[-1]]:
             self.menu_actions[self.menu_selection[-1]]()

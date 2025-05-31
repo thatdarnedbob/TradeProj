@@ -1,0 +1,5 @@
+Name, parent
+Boolea, 5, none
+Boolea Outskirts, 2, Boolea
+Headwaters of Boolea, 1, Boolea
+Imperia, 25, none

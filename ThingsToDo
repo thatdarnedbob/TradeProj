@@ -1,8 +1,28 @@
 # Ever updating list of the very next things to do
 
-- New Main Menu:
-    1. Towns
-    2. Ships
-    3. Goods
-    4. Quit
-- Create Town class, Town Manager class, Ship class.
+- Create Town class, World Manager class, Ship class.
+
+Town knows:
+
+- Its name
+- Its # of pop units
+- Its production
+
+Ship knows:
+
+- Its name
+- Its location (current port)
+- Its cargo
+- Its activity
+
+World Manager knows:
+
+- Each town's name, tied to a number (dict?)
+- distance matrix for towns
+
+World Manager does:
+
+- Generate initial towns
+- Generate Goods
+- Generate Ships
+- Generate distance matrices
