@@ -1,0 +1,9 @@
+# Ever updating list of the very next things to do
+
+- Make the Main Menu "exit" actually exit
+- New Main Menu:
+    1. Towns
+    2. Ships
+    3. Goods
+    4. Quit
+- Create Town class, Town Manager class, Ship class.

@@ -33,7 +33,7 @@ class TradeView():
         self.menus.fill(MENUS_MASK_COLOR)
         self.menu_selection.fill(MENUS_MASK_COLOR)
 
-        font = pg.font.SysFont('couriernew', 36)
+        font = pg.font.Font('fonts/VT323/VT323-Regular.ttf', 40)
         for i in range(len(menu_array)):
             if i == selected:
                 num_size = font.size(f"{i + 1}")
