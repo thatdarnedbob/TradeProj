@@ -2,7 +2,7 @@ class WorldManager():
     def __init__(self):
         self.towns = self.load_town_file()
         self.ships = ShipManager()
-        # self.goods = self.load_goods_file()
+        self.goods = self.load_goods_file()
 
     def load_town_file(self):
         towns = []
@@ -19,6 +19,14 @@ class WorldManager():
                 towns.append(new_town)
         return towns
     
+    def load_goods_file(self):
+        goods = []
+        with open("data/goods.txt", "r") as f:
+            goods_lines = f.read().splitlines()[1:]
+            for good in goods_lines:
+                goods.append(good)
+        return goods
+    
     def num_of_towns(self):
         return len(self.towns)
 
@@ -29,6 +37,8 @@ class WorldManager():
         return town_list
     def disp_ship_list(self):
         return self.ships.disp_ships()
+    def disp_goods_list(self):
+        return self.goods
     
 class Town():
     def __init__(self, name, population, parent):
@@ -68,7 +78,6 @@ class ShipFactory():
                                         "upkeep":ship[3]}
     def create_ship(self, shipname, location):
         return Ship(location, name=shipname, ship_dict=self.ship_classes[shipname])
-
 
 class Ship():
     def __init__(self, location, name="Generic Ship", ship_dict={"capacity":0, "cost":0, "upkeep":0}):

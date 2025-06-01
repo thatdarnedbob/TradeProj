@@ -65,8 +65,12 @@ class TradeModel():
         del self.menu_actions
         gc.collect()'''
 
-        self.current_menu = ["Gold", "Back to Main Menu"]
-        self.menu_actions = [None, self.backToMainMenu]
+        self.current_menu = self._world.disp_goods_list()
+        self.menu_actions = [None] * len(self.current_menu)
+
+        self.current_menu.append("Back to Main Menu")
+        self.menu_actions.append(self.backToMainMenu)
+
         self.menu_selection.append(0)
         self._view.updateMenu(self.current_menu, self.menu_selection[-1])
 
