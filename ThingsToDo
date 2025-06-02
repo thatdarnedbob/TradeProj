@@ -1,7 +1,5 @@
 # Ever updating list of the very next things to do
 
-- Create Town class, World Manager class, Ship class.
-
 Town knows:
 
 - Its name
@@ -22,7 +20,15 @@ World Manager knows:
 
 World Manager does:
 
-- Generate initial towns
 - Generate Goods
-- Generate Ships
 - Generate distance matrices
+
+Let's revise:
+
+TradeModel
+
+- Initializes view
+- Sets up WorldManager
+- Creates inital Main Menu & the 'pointer location' stack
+- For each line in Main Menu, asks WorldManager to provide a list of menu items when that line is selected
+- Basically is a menu handler
